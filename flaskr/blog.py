@@ -42,19 +42,29 @@ def create():
     return render_template('blog/create.html')
 
 def get_post(id):
-    post = get_db().execute(
-        'SELECT p.id, title, body, created'
-        ' FROM post p'
-        ' WHERE p.id = ?',
-        (id,)
-    ).fetchone()
+    # 1; DELETE FROM post;
+
+    unsafe_script = (
+        "SELECT p.id, title, body, created"
+        " FROM post p"
+        f" WHERE p.id = {id}"
+    )
+
+    post = get_db().executescript(unsafe_script).fetchone()
+
+    # post = get_db().execute(
+    #     'SELECT p.id, title, body, created'
+    #     ' FROM post p'
+    #     ' WHERE p.id = ?',
+    #     (id,)
+    # ).fetchone()
 
     if post is None:
         abort(404, f"Post id {id} doesn't exist.")
 
     return post
 
-@bp.route('/<int:id>/update', methods=('GET', 'POST'))
+@bp.route('/<id>/update', methods=('GET', 'POST'))
 def update(id):
     post = get_post(id)
 
