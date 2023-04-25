@@ -2,20 +2,20 @@ import os
 
 from flask import Flask
 
-from flaskr import db, blog
+from flaskr import csv_file, blog
 
 def create_app():
     app = Flask(__name__, instance_relative_config=True)
     app.config.from_mapping(
         SECRET_KEY='dev',
-        DATABASE=os.path.join(app.instance_path, 'flaskr.sqlite')
+        CSV=os.path.join(app.instance_path, 'flaskr.csv')
     )
     
     app.config.from_pyfile('config.py', silent=True)
 
     os.makedirs(app.instance_path, exist_ok=True)
 
-    db.init_app(app)
+    csv_file.init_app(app)
 
     @app.route('/hello')
     def hello_world():
