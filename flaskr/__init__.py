@@ -20,6 +20,5 @@ def create_app():
         return "<h1>Hello, World!</h1>"
 
     app.register_blueprint(blog.bp)
-    app.add_url_rule('/', endpoint='index')
 
     return app
