@@ -2,11 +2,16 @@ import csv
 from datetime import datetime
 
 from flask import (
-    Blueprint, flash, g, redirect, render_template, request, url_for
+    Blueprint,
+    flash,
+    redirect,
+    render_template,
+    request,
+    url_for
 )
-from werkzeug.exceptions import abort
 
 from flaskr.csv_file import get_csv_file
+
 
 bp = Blueprint('blog', __name__)
 
