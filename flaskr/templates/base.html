@@ -1,12 +1,23 @@
 <!doctype html>
-<title>{% block title %}{% endblock %} - Flaskr</title>
+
+<html lang="en">
+<title>Handwritten Digit Recognition Demo</title>
+<script type="text/javascript" src="/static/jquery.min.js"></script>
+<script type="text/javascript" src="/static/mathutils.js"></script>
+<script type="text/javascript" src="/static/mnist_digit_labels.js"></script>
+<script type="text/javascript" src="/static/webcnn.js"></script>
+<script type="text/javascript" src="/static/digitdemo.js"></script>
 <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-<nav>
-    <h1>Flaskr</h1>
-</nav>
-<section class="content">
-    <header>
-        {% block header %}{% endblock %}
-    </header>
-    {% block content %}{% endblock %}
-</section>
+
+<div id="recognizer">
+    <div class="inlineDiv">
+        <div id="drawingCanvasDiv"><canvas id="drawCanvas" width="300" height="300"></canvas></div>
+        <button class="silverButton" onclick="buttonClick(2)" id="clearButton">Reset</button>
+    </div>
+    <div class="inlineDiv">
+        <div id="guessNumberDiv"></div>
+        <div>Confidence: <span id="confidence">0%</span></div>
+    </div>
+</div>
+
+</html>

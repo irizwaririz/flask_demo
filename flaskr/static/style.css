@@ -1,134 +1,86 @@
-html {
-  font-family: sans-serif;
-  background: #eee;
-  padding: 1rem;
+#recognizer
+{
+    width: 100%;
+    text-align: center;
 }
 
-body {
-  max-width: 960px;
-  margin: 0 auto;
-  background: white;
+#guessNumberDiv
+{
+    width: 300px;
+    height: 300px;
+    border: 1px solid;
+    text-align: center;
+    background-color: rgb( 255, 255, 255 );
+    border-color: #cccccc;
+    font-family: sans-serif;
+    font-size: 256px;
+    line-height: 300px;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: serif;
-  color: #377ba8;
-  margin: 1rem 0;
+#drawingCanvasDiv
+{
+    vertical-align: top;
 }
 
-a {
-  color: #377ba8;
+.inlineDiv
+{
+    display: inline-block;
+    vertical-align: top;
 }
 
-hr {
-  border: none;
-  border-top: 1px solid lightgray;
+canvas
+{
+    cursor: default;
+    border: 1px solid;
+    border-color: #cccccc;
+    outline: 0;
+    vertical-align: bottom;
 }
 
-nav {
-  background: lightgray;
-  display: flex;
-  align-items: center;
-  padding: 0 0.5rem;
+canvas.dragging
+{
+    cursor: crosshair;
 }
 
-nav h1 {
-  flex: auto;
-  margin: 0;
+.silverButton {
+    -moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
+    -webkit-box-shadow:inset 0px 1px 0px 0px #ffffff;
+    box-shadow:inset 0px 1px 0px 0px #ffffff;
+    background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ededed), color-stop(1, #dbdbdb));
+    background:-moz-linear-gradient(top, #ededed 5%, #dbdbdb 100%);
+    background:-webkit-linear-gradient(top, #ededed 5%, #dbdbdb 100%);
+    background:-o-linear-gradient(top, #ededed 5%, #dbdbdb 100%);
+    background:-ms-linear-gradient(top, #ededed 5%, #dbdbdb 100%);
+    background:linear-gradient(to bottom, #ededed 5%, #dbdbdb 100%);
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ededed', endColorstr='#dbdbdb',GradientType=0);
+    background-color:#ededed;
+    -moz-border-radius:6px;
+    -webkit-border-radius:6px;
+    border-radius:6px;
+    border:1px solid #dcdcdc;
+    display:inline-block;
+    cursor:pointer;
+    color:#444444;
+    font-family: sans-serif;
+    font-size:15px;
+    font-weight:bold;
+    padding: 4px 10px;
+    margin: 4px 0 0 0;
+    text-decoration:none;
+    text-shadow:0px 1px 0px #ffffff;
+}
+.silverButton:hover {
+    background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #dbdbdb), color-stop(1, #ededed));
+    background:-moz-linear-gradient(top, #dbdbdb 5%, #ededed 100%);
+    background:-webkit-linear-gradient(top, #dbdbdb 5%, #ededed 100%);
+    background:-o-linear-gradient(top, #dbdbdb 5%, #ededed 100%);
+    background:-ms-linear-gradient(top, #dbdbdb 5%, #ededed 100%);
+    background:linear-gradient(to bottom, #dbdbdb 5%, #ededed 100%);
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#dbdbdb', endColorstr='#ededed',GradientType=0);
+    background-color:#dbdbdb;
 }
 
-nav h1 a {
-  text-decoration: none;
-  padding: 0.25rem 0.5rem;
-}
-
-nav ul  {
-  display: flex;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-nav ul li a, nav ul li span, header .action {
-  display: block;
-  padding: 0.5rem;
-}
-
-.content {
-  padding: 0 1rem 1rem;
-}
-
-.content > header {
-  border-bottom: 1px solid lightgray;
-  display: flex;
-  align-items: flex-end;
-}
-
-.content > header h1 {
-  flex: auto;
-  margin: 1rem 0 0.25rem 0;
-}
-
-.flash {
-  margin: 1em 0;
-  padding: 1em;
-  background: #cae6f6;
-  border: 1px solid #377ba8;
-}
-
-.post > header {
-  display: flex;
-  align-items: flex-end;
-  font-size: 0.85em;
-}
-
-.post > header > div:first-of-type {
-  flex: auto;
-}
-
-.post > header h1 {
-  font-size: 1.5em;
-  margin-bottom: 0;
-}
-
-.post .about {
-  color: slategray;
-  font-style: italic;
-}
-
-.post .body {
-  white-space: pre-line;
-}
-
-.content:last-child {
-  margin-bottom: 0;
-}
-
-.content form {
-  margin: 1em 0;
-  display: flex;
-  flex-direction: column;
-}
-
-.content label {
-  font-weight: bold;
-  margin-bottom: 0.5em;
-}
-
-.content input, .content textarea {
-  margin-bottom: 1em;
-}
-
-.content textarea {
-  min-height: 12em;
-  resize: vertical;
-}
-
-input.danger {
-  color: #cc2f2e;
-}
-
-input[type=submit] {
-  align-self: start;
-  min-width: 10em;
+.silverButton:active {
+    position:relative;
+    top:1px;
 }
